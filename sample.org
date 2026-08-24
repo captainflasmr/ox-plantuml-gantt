@@ -1,0 +1,59 @@
+#+TITLE: Sample Project Plan
+#+OPTIONS: toc:nil num:nil
+#+TODO: TODO(t) IN-PROGRESS(i) DONE(d)
+#+GANTT_PRINT_SCALE: weekly
+
+* Project Setup
+** DONE Project Kickoff
+   SCHEDULED: <2026-08-01 Sat>
+   :PROPERTIES:
+   :EFFORT:   1d
+   :END:
+
+** DONE Requirements Gathering [100%]
+   SCHEDULED: <2026-08-03 Mon> DEADLINE: <2026-08-07 Fri>
+   :END:
+
+* Phase 1: Core Engine
+** DONE Design Architecture
+   SCHEDULED: <2026-08-10 Mon>
+   :PROPERTIES:
+   :EFFORT:   1w
+   :END:
+
+** IN-PROGRESS Implement Parser Backend
+   :PROPERTIES:
+   :EFFORT:   5d
+   :BLOCKER:  Design Architecture
+   :COMPLETED: 60
+   :END:
+
+** TODO Render Pipeline
+   DEADLINE: <2026-08-28 Fri>
+   :PROPERTIES:
+   :EFFORT:   4d
+   :BLOCKER:  Implement Parser Backend
+   :END:
+
+* Phase 2: Integration
+** IN-PROGRESS Write Unit Tests
+   :PROPERTIES:
+   :EFFORT:   2d
+   :BLOCKER:  Render Pipeline
+   :END:
+
+** TODO Documentation
+   :PROPERTIES:
+   :EFFORT:   12:00
+   :BLOCKER:  Render Pipeline
+   :END:
+
+* Notes
+- Parent headlines (headlines with children) become section separators.
+- Leaf headlines with SCHEDULED, DEADLINE, or :BLOCKER: become tasks.
+- When both a date and :BLOCKER: are set, the date takes precedence and
+  the dependency is not rendered.
+- A task with both a schedule and a deadline keeps them on one planning
+  line (as Org itself inserts them via C-c C-s / C-c C-d).
+- Define IN-PROGRESS as a TODO keyword for the sample above, e.g.:
+  (setq org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS(i)" "DONE(d)")))

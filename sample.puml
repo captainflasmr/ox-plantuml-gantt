@@ -1,0 +1,26 @@
+@startgantt
+printscale weekly
+saturdays are closed
+sundays are closed
+Project starts 2026-08-01
+
+-- Project Setup --
+[Project Kickoff] starts 2026-08-01 and lasts 1 days
+[Project Kickoff] is 100% completed
+[Requirements Gathering] starts 2026-08-03 and ends 2026-08-07
+[Requirements Gathering] is 100% completed
+-- Phase 1: Core Engine --
+[Design Architecture] starts 2026-08-10 and lasts 7 days
+[Design Architecture] is 100% completed
+[Implement Parser Backend] starts at [Design Architecture]'s end
+[Implement Parser Backend] lasts 5 days
+[Implement Parser Backend] is 60% completed
+[Render Pipeline] ends 2026-08-28
+[Render Pipeline] lasts 4 days
+-- Phase 2: Integration --
+[Write Unit Tests] starts at [Render Pipeline]'s end
+[Write Unit Tests] lasts 2 days
+[Write Unit Tests] is 50% completed
+[Documentation] starts at [Render Pipeline]'s end
+[Documentation] lasts 12 hours
+@endgantt
