@@ -4,8 +4,7 @@
 #+language: en
 #+options: ':t toc:nil author:nil email:nil num:nil title:nil
 
-An Org Export (=ox=) backend that translates Org headlines into
-[[https://plantuml.com/gantt-diagram][PlantUML Gantt]] syntax.
+An Org Export (=ox=) backend that translates Org headlines into [[https://plantuml.com/gantt-diagram][PlantUML Gantt]] syntax.
 
 ** Installation
 
@@ -27,9 +26,7 @@ Open an Org file annotated as described below and press:
 
 ** Rendering
 
-=plantuml-mode= (MELPA) is configured in =init.el= to render charts with
-a local PlantUML jar (=~/.emacs.d/plantuml.jar=, jar execution mode, PNG
-output). Requires Java on your system.
+=plantuml-mode= (MELPA) is configured in =init.el= to render charts with a local PlantUML jar (=~/.emacs.d/plantuml.jar=, jar execution mode, PNG output). Requires Java on your system.
 
 Open the exported =.puml= file (auto-detected by =plantuml-mode=) and:
 
@@ -37,10 +34,7 @@ Open the exported =.puml= file (auto-detected by =plantuml-mode=) and:
 - =C-u C-c C-c= — render in a new window
 - =C-c C-u= / =C-c C-d= — resize the preview
 
-The PlantUML jar can be downloaded from
-<https://github.com/plantuml/plantuml/releases/latest>; the version in
-use must support =lasts=, =starts=/=ends=, and =is N% completed=
-(anything ≥ 1.2024 works; if a chart fails to render, update the jar).
+The PlantUML jar can be downloaded from <https://github.com/plantuml/plantuml/releases/latest>; the version in use must support =lasts=, =starts=/=ends=, and =is N% completed= (anything ≥ 1.2024 works; if a chart fails to render, update the jar).
 
 Pipe the resulting =.puml= into PlantUML to render the Gantt chart.
 
@@ -59,12 +53,7 @@ Pipe the resulting =.puml= into PlantUML to render the Gantt chart.
 | =[N%]= in the headline title                 | stripped from the task title                   |
 #+TBLFM: $1=:COMPLETED:= (0-100)
 
-A leaf headline (no children) becomes a task only if it has a
-=SCHEDULED=, =DEADLINE=, or =:BLOCKER:=; other headlines are ignored.
-When both a date and =:BLOCKER:= are set, the date takes precedence and
-the dependency is not rendered. If a task has both a schedule and a
-deadline, keep them on the same planning line (as Org itself inserts
-them via =C-c C-s= / =C-c C-d=).
+A leaf headline (no children) becomes a task only if it has a =SCHEDULED=, =DEADLINE=, or =:BLOCKER:=; other headlines are ignored.  When both a date and =:BLOCKER:= are set, the date takes precedence and the dependency is not rendered. If a task has both a schedule and a deadline, keep them on the same planning line (as Org itself inserts them via =C-c C-s= / =C-c C-d=).
 
 Example:
 
@@ -90,8 +79,7 @@ Example:
 ,   :END:
 #+end_src
 
-Note: =IN-PROGRESS= must be defined in =org-todo-keywords= (along with
-=DONE=) for the keyword-based progress mapping to work, e.g.:
+Note: =IN-PROGRESS= must be defined in =org-todo-keywords= (along with =DONE=) for the keyword-based progress mapping to work, e.g.:
 
 #+begin_src elisp
 (setq org-todo-keywords '((sequence "TODO(t)" "IN-PROGRESS(i)" "DONE(d)")))
@@ -106,8 +94,7 @@ See =sample.org= for a complete example.
 | =ox-plantuml-gantt-print-scale=            | =daily=  | =daily=, =weekly=, or =monthly=               |
 | =ox-plantuml-gantt-close-weekends=         | =t=      | close Saturdays and Sundays                   |
 
-Both can be overridden per-file with the =GANTT_PRINT_SCALE= and
-=GANTT_CLOSE_WEEKENDS= export keywords:
+Both can be overridden per-file with the =GANTT_PRINT_SCALE= and =GANTT_CLOSE_WEEKENDS= export keywords:
 
 #+begin_src org
 #+GANTT_PRINT_SCALE: weekly
